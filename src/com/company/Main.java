@@ -3,52 +3,25 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        Hero Warrior = new Hero() {
+        Warrior warrior = new Warrior(50, 30);
+        Magic magic = new Magic(35, 35);
+        Necromancer necromancer = new Necromancer(20, 44);
+        Hero[] array = {warrior, magic, necromancer};
+        System.out.println(array);
 
-            @Override
-            public void applySuperAbility(String superAbilityType) {
-                System.out.println(superAbilityType);
-            }
-        };
 
-        Hero Magic = new Hero() {
-            @Override
-            public void applySuperAbility(String superAbilityType) {
-                System.out.println(superAbilityType);
-            }
-        };
-        Hero Medic = new Hero() {
-            @Override
-            public void applySuperAbility(String superAbilityType) {
-                System.out.println(superAbilityType);
-            }
-        };
-        Warrior.setHeroHp(50);
-        Warrior.setHeroDamage(30);
-        Magic.setHeroHp(37);
-        Magic.setHeroDamage(35);
-        Medic.setHeroHp(40);
-        Medic.setHeroHil(15);
+        System.out.println("Warrior Hp and Damage " + warrior.getHp() + " " + warrior.getDamage());
+        System.out.println("Magic Hp and Damage " + magic.getHp() + " " + magic.getDamage());
+        System.out.println("Necromancer Hp and Damage " + necromancer.getHp() + " " + necromancer.getDamage());
 
-        Warrior.applySuperAbility("крит урон");
-        Magic.applySuperAbility("огненый шар");
-        Medic.applySuperAbility("лечение");
-        Hero[] array = {Warrior, Magic, Medic};
-        System.out.println(
-                "|Warrior Hp: "
-                + Warrior.getHeroHp()
-                + "|Warrior Damage: "
-                + Warrior.getHeroDamage()
-                + "|Magic Hp: "
-                + Magic.getHeroHp()
-                + "|Magic Damage: "
-                + Magic.getHeroDamage()
-                + "|Medic Hp: "
-                + Medic.getHeroHp()
-                + "|Medic Hil: "
-                + Medic.getHeroHil()
-                + array);
+
+        for (int i = 0; i < array.length; i++) {
+            array[0].applySuperAbility("Крит урон");
+            array[1].applySuperAbility("Огненый шар");
+            array[2].applySuperAbility("Востание нежити");
+            break;
+        }
+
     }
-
 }
 
